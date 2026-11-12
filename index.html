@@ -141,20 +141,78 @@ dialog::backdrop{background:#000b}
  #auditPanel .top h2{font-size:1.05rem}
  @media(max-width:380px){.brand{gap:8px}.brand-icon svg{width:38px}.tab{font-size:.64rem}.stat{min-height:94px}.stat strong{font-size:1.26rem}}
 
-</style></head><body>
-<header><div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 52 52" width="47" height="47"><path d="M6 17 38 5l8 6-31 13z" fill="#16b8ac"/><path d="M6 17v9l9 7 31-12V11L15 24z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="M6 30v9l9 7 31-12v-9L15 38z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="m6 30 9 8 31-13" fill="none" stroke="#30d0c6" stroke-width="2"/></svg></span><div><h1>La mia Biblioteca</h1><p class="app-version">Versione 2026.11.12.2</p></div></div><button type="button" class="settings-toggle" id="settingsToggle" aria-label="Vai a backup e impostazioni" title="Backup e impostazioni">⚙</button></header>
-<main>
-<section class="panel collection-panel"><div class="top collection-top"><span class="muted" id="count">0 libri</span></div>
 
+/* VERSIONE FEDELE ALLA FOTO DEL 12 NOVEMBRE: modifica solo presentazione */
+:root{color-scheme:dark;background:#04070a;color:#f5f7f9}
+body{background:radial-gradient(ellipse 65% 40% at 40% 25%,#091019 0%,#04070a 72%,#030405 100%);color:#f5f7f9}
+header{padding:15px 16px 10px;background:transparent;border:0;max-width:850px}
+.brand{gap:10px}.brand-icon svg{width:53px;height:53px}
+header h1{font-size:clamp(1.45rem,5.6vw,2.15rem);font-weight:790;letter-spacing:-.035em}
+header .app-version{font-size:.7rem;margin-top:3px;color:#aeb8c3}
+.settings-toggle{font-size:1.5rem!important}
+main{max-width:850px;padding:4px 14px 55px}
+.collection-panel{padding:0!important;background:transparent!important;border:0!important;margin-bottom:0!important}
+.home-head{display:none}
+#search{display:block;border:1px solid #485367;border-radius:14px;background:linear-gradient(#232934,#1c212c);min-height:43px;padding:10px 13px 10px 35px;margin:5px 0 10px;color:#fff;font-size:.89rem}
+#search::placeholder{color:#aab2be}
+.add-home{margin:0 0 12px!important;background:linear-gradient(180deg,#f2a422,#b86a04)!important;border:1px solid #f4ab29!important;color:#fff!important;border-radius:12px!important;min-height:44px;padding:8px 12px!important;font-size:1rem!important;font-weight:700!important;box-shadow:inset 0 1px 0 #ffd16a50}
+.add-home span{font-size:1.4rem;vertical-align:-1px;margin-right:4px;font-weight:400}
+.tabs{margin:0 0 13px!important;gap:6px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.tab{font-size:clamp(.62rem,2.8vw,.92rem)!important;min-height:37px;padding:8px 2px!important;color:#fff!important;border-radius:12px!important;white-space:nowrap}
+.tab[data-tab=all]{background:linear-gradient(180deg,#00a5a0,#007e7b)!important;border:1px solid #09c5c2!important}
+.tab[data-tab=read]{background:linear-gradient(180deg,#314d65,#23394f)!important;border:1px solid #3e5a70!important}
+.tab[data-tab=unread]{background:linear-gradient(180deg,#c68412,#976009)!important;border:1px solid #cf8a16!important}
+.tab[data-tab=wanted]{background:linear-gradient(180deg,#b9501b,#87350d)!important;border:1px solid #c35d1b!important}
+.tab[aria-selected=true]{box-shadow:0 0 0 1px #ffffff35 inset,0 1px 8px #00b2a633}
+#books{gap:0;margin-top:0;background:#090e14;border:1px solid #26303a;border-radius:12px;overflow:hidden}
+.book{background:transparent!important;border:0!important;border-bottom:1px solid #2c343d!important;border-radius:0!important;padding:4px 8px!important;min-height:59px!important}
+.book:last-child{border-bottom:0!important}.book-summary{gap:8px;min-height:51px;display:flex;align-items:center}
+.tiny-cover{width:34px!important;height:49px!important;border-radius:4px!important;flex:none}
+.reading-badge{display:flex;align-items:center;justify-content:center;min-width:65px;max-width:78px;flex:none;border-radius:8px;border:1px solid;padding:5px 5px;font-size:clamp(.59rem,2.35vw,.81rem);line-height:1.05;color:#fff;white-space:nowrap;font-weight:570}
+.badge-read{background:linear-gradient(165deg,#008e7f,#005f56);border-color:#06ac9d}
+.badge-unread{background:linear-gradient(165deg,#c68716,#91600e);border-color:#dca020}
+.badge-wanted{background:linear-gradient(165deg,#c95b1f,#8f3710);border-color:#dc6725}
+.bookinfo{flex:1;min-width:0}.book-select{display:block;width:100%;min-height:48px!important;padding:3px 19px 3px 5px!important;color:#fff;line-height:1.18!important}
+.book-select strong{font-size:clamp(.79rem,3.55vw,1rem)!important;line-height:1.18;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bookinfo .muted{font-size:clamp(.7rem,2.95vw,.87rem)!important;color:#adb5c2!important;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.book-select::after{content:'›'!important;right:0!important;top:5px!important;font-size:1.35rem!important;color:#bbc3ce!important}
+.book-select[aria-expanded=true]::after{content:'⌄'!important}
+.book-details{padding:12px 2px!important;margin:6px 0!important}
+#paging{display:flex;justify-content:center!important;align-items:center;gap:7px;margin:10px 0 2px!important;padding-right:0}
+.pagination button{width:29px;height:29px;padding:2px!important;border:1px solid #414c5b;border-radius:7px;background:#0f141c!important;color:#fff!important;font-size:1rem!important;font-weight:500}
+.pagination button:disabled{opacity:.35}.page-numbers{display:flex;align-items:center;gap:7px;color:#aab4c2}
+.pagination .number-page.current{background:linear-gradient(180deg,#008c83,#00665f)!important;border-color:#00bfb5!important;color:#fff}
+.page-ellipsis{display:inline-block;color:#a5a9b2;padding:0 1px}
+#listMeta{margin:0 0 14px;min-height:14px;text-align:right;color:#a6b0bd;font-size:.72rem}
+.panel:has(>.stats){margin:0 0 18px!important;background:transparent;border:0;padding:0!important}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:5px!important}
+.stat{border-radius:11px!important;padding:8px 3px!important;min-width:0;min-height:86px!important;gap:4px!important;align-items:center;justify-content:center}
+.stat:nth-child(1){background:linear-gradient(160deg,#087c74,#00534f);border-color:#069c8e}
+.stat:nth-child(2){background:linear-gradient(160deg,#38688b,#24425c);border-color:#477ba0}
+.stat:nth-child(3){background:linear-gradient(160deg,#d09218,#a26406);border-color:#dc9c20}
+.stat:nth-child(4){background:linear-gradient(160deg,#e66e20,#b64209);border-color:#ed7425}
+.stat span{display:flex;align-items:center;flex-direction:column;justify-content:center;gap:2px;color:#fff;font-size:clamp(.54rem,2.46vw,.82rem)!important;line-height:1.1;font-weight:650;white-space:nowrap}
+.stat svg{width:22px;height:22px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;display:block}
+.stat strong{font-size:clamp(1.2rem,5.4vw,2rem)!important;font-weight:770;line-height:1.05}
+#displayOptions{margin-top:12px}
+#displayOptions summary{font-size:.82rem}
+@media(min-width:610px){.reading-badge{min-width:86px}.tiny-cover{width:44px!important;height:59px!important}.book{min-height:68px!important}.book-summary{min-height:59px}.stat{min-height:115px!important}.stat svg{width:29px;height:29px}}
+@media(max-width:355px){main{padding-left:9px;padding-right:9px}.tabs{gap:3px}.tab{font-size:.59rem!important}.reading-badge{min-width:59px;max-width:65px;padding:4px 2px}.book-summary{gap:5px}}
+</style></head><body>
+<header><div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 52 52" width="47" height="47"><path d="M6 17 38 5l8 6-31 13z" fill="#16b8ac"/><path d="M6 17v9l9 7 31-12V11L15 24z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="M6 30v9l9 7 31-12v-9L15 38z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="m6 30 9 8 31-13" fill="none" stroke="#30d0c6" stroke-width="2"/></svg></span><div><h1>La mia Biblioteca</h1><p class="app-version">Versione 2026.11.12.3</p></div></div><button type="button" class="settings-toggle" id="settingsToggle" aria-label="Vai a backup e impostazioni" title="Backup e impostazioni">⚙</button></header>
+<main>
+<section class="panel collection-panel">
+
+<div class="home-head" id="collectionTitle"></div>
 <input id="search" type="search" placeholder="Cerca titolo o autore" aria-label="Cerca libri nella sezione selezionata">
-<button id="add" type="button" class="add-home">＋ Aggiungi libro</button>
+<button id="add" type="button" class="add-home"><span aria-hidden="true">＋</span> Aggiungi libro</button>
 <div class="tabs" role="tablist" aria-label="Sezioni biblioteca"><button type="button" class="tab" data-tab="all" aria-selected="true">Tutti</button><button type="button" class="tab" data-tab="read" aria-selected="false">Letti</button><button type="button" class="tab" data-tab="unread" aria-selected="false">Non letti</button><button type="button" class="tab" data-tab="wanted" aria-selected="false">Da comprare</button></div>
-<label for="sort">Ordina</label><select id="sort"><option value="title">Titolo A–Z</option><option value="recent">Ultimi inseriti</option><option value="author">Autore A–Z</option><option value="shelf">Scaffale A–Z</option><option value="unread">Non letti prima</option><option value="rating">Voto più alto</option></select>
-<div class="list-controls"><span class="muted">10 libri per pagina</span><label class="mini-setting"><input id="showMinis" type="checkbox" checked>Mini copertine</label></div>
-<p id="listMeta" class="list-meta" aria-live="polite"></p><div id="books"></div><div id="paging" class="pagination"><button id="prevPage" type="button" class="secondary">‹ Indietro</button><span id="pageLabel" class="muted"></span><button id="nextPage" type="button" class="secondary">Avanti ›</button></div>
+<div id="books"></div><div id="paging" class="pagination"><button id="prevPage" type="button" class="secondary" aria-label="Pagina precedente">‹</button><span id="pageLabel" class="page-numbers"></span><button id="nextPage" type="button" class="secondary" aria-label="Pagina successiva">›</button></div><div class="list-meta" id="listMeta" aria-live="polite"></div>
+<span id="count" hidden>0 libri</span>
 <div id="wishExtra" hidden><button id="addWish" type="button" class="secondary" style="width:100%;margin-top:14px">＋ Aggiungi alla lista acquisti</button></div>
 </section>
-<section class="panel"><h2>La biblioteca in numeri</h2><div class="stats" aria-live="polite"><div class="stat"><strong id="statOwned">0</strong><span>Libri posseduti</span></div><div class="stat"><strong id="statRead">0</strong><span>Libri letti</span></div><div class="stat"><strong id="statUnread">0</strong><span>Non letti</span></div><div class="stat"><strong id="statWanted">0</strong><span>Da comprare</span></div></div></section>
+<section class="panel"><h2>La biblioteca in numeri</h2><div class="stats" aria-live="polite"><div class="stat"><strong id="statOwned">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v17H3zm9 3h5v14h-5zm6-4 4 2v16l-4-2zM6 7h2m-2 9h2m9-8h-3"/></svg>Posseduti</span></div><div class="stat"><strong id="statRead">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m7 12 3.3 3.3L17 8.5"/></svg>Letti</span></div><div class="stat"><strong id="statUnread">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-3-2-6-2-10-2v15c4 0 7 0 10 2 3-2 6-2 10-2V3c-4 0-7 0-10 2zm0 0v15"/></svg>Non letti</span></div><div class="stat"><strong id="statWanted">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h3l3 13h11l3-10H6m3 15h.1m9 0h.1"/></svg>Da comprare</span></div></div></section>
+<section class="panel" id="displayOptions"><details><summary>Ordinamento e visualizzazione</summary><label for="sort">Ordina</label><select id="sort"><option value="title">Titolo A–Z</option><option value="recent">Ultimi inseriti</option><option value="author">Autore A–Z</option><option value="shelf">Scaffale A–Z</option><option value="unread">Non letti prima</option><option value="rating">Voto più alto</option></select><div class="list-controls"><span class="muted">10 libri per pagina</span><label class="mini-setting"><input id="showMinis" type="checkbox" checked>Mini copertine</label></div></details></section>
 <section class="panel" id="auditPanel"><div class="top"><h2>🔎 Controllo catalogo</h2><span class="muted" id="auditCount">Da verificare</span></div><p class="muted">Segnala possibili incongruenze senza correggere o cancellare nulla. I campi facoltativi possono restare vuoti.</p><button type="button" id="auditToggle" class="secondary" aria-expanded="false" aria-controls="auditBody">Mostra segnalazioni</button><div id="auditBody" hidden><p id="auditMeta" class="audit-meta"></p><div id="auditList" class="audit-list"></div><p class="audit-hint">Gli avvisi sono suggerimenti, non errori certi. Puoi ignorarli.</p></div></section>
 <section class="panel"><h2>Backup del catalogo e della lista acquisti</h2><p class="muted">La biblioteca resta salvata in questo browser, non su GitHub. Anche i libri da comprare e le foto sono inclusi nel backup JSON. Esportalo regolarmente, soprattutto prima di cambiare telefono.</p><div class="actions"><button id="export">Esporta backup JSON</button><button id="csv" class="secondary">Esporta elenco CSV</button></div><details id="photoOptimization"><summary>Ottimizzazione delle copertine già archiviate</summary><p class="muted">Le nuove foto vengono compresse automaticamente. Per ridurre anche quelle già salvate, esporta prima un backup JSON e verifica che il file sia stato scaricato correttamente. L’operazione non elimina libri né altera titoli, autori o voti. Le foto più piccole non vengono sostituite.</p><label class="mini-setting" style="margin:12px 0"><input id="backupConfirmed" type="checkbox"> Ho esportato e conservato un backup JSON</label><button id="optimizePhotos" type="button" class="secondary" disabled>Ottimizza le copertine esistenti</button><p id="optimizeResult" class="muted" aria-live="polite"></p></details><label for="import">Ripristina backup JSON</label><input id="import" type="file" accept=".json,application/json"><p class="muted">Il ripristino aggiunge i libri che non sono già presenti.</p></section>
 <section class="panel" id="storagePanel"><div class="top"><h2>Memoria del browser</h2><button type="button" class="secondary" id="storageRefresh">Aggiorna</button></div><p class="muted">Stima dello spazio usato dal sito e della quota disponibile. Non misura soltanto i libri e non è spazio riservato.</p><div class="storage-grid"><div><span>Spazio utilizzato</span><strong id="storageUsed">Da misurare</strong></div><div><span>Quota stimata</span><strong id="storageQuota">Da misurare</strong></div></div><p class="muted" id="storageNote" aria-live="polite"></p></section>
@@ -228,7 +286,7 @@ function render(){
  const pages=Math.max(1,Math.ceil(arr.length/10));currentPage=Math.min(currentPage,pages);
  $('count').textContent=sections[activeTab].length+' '+(sections[activeTab].length===1?'libro':'libri');
  $('listMeta').textContent=arr.length?'Risultati '+((currentPage-1)*10+1)+'–'+Math.min(currentPage*10,arr.length)+' di '+arr.length:'Nessun libro trovato';
- $('pageLabel').textContent=currentPage+' / '+pages;$('prevPage').disabled=currentPage===1;$('nextPage').disabled=currentPage===pages;
+ $('pageLabel').replaceChildren();for(const n of Array.from(new Set([1,...Array.from({length:5},(_,i)=>currentPage+i-2).filter(i=>i>1&&i<pages),pages].filter(n=>n>=1&&n<=pages))).sort((a,b)=>a-b)){const el=document.createElement('button');el.type='button';el.className='number-page'+(n===currentPage?' current':'');el.textContent=String(n);el.setAttribute('aria-label','Pagina '+n);if(n===currentPage)el.setAttribute('aria-current','page');el.onclick=()=>{currentPage=n;render()};const last=$('pageLabel').lastElementChild;if(last&&n-Number(last.dataset.n)>1){const dots=document.createElement('span');dots.className='page-ellipsis';dots.textContent='…';$('pageLabel').append(dots)}el.dataset.n=n;$('pageLabel').append(el)}$('prevPage').disabled=currentPage===1;$('nextPage').disabled=currentPage===pages;
  $('wishExtra').hidden=activeTab!=='wanted';
  document.querySelectorAll('[data-tab]').forEach(el=>el.setAttribute('aria-selected',String(el.dataset.tab===activeTab)));
  renderList('books',arr.slice((currentPage-1)*10,currentPage*10),activeTab==='wanted');
@@ -238,6 +296,7 @@ function renderList(container,arr,isWish){const root=$(container);root.replaceCh
 
  const row=document.createElement('div');row.className='book-summary';
  if(showMinis){const url=b.photo||b.cover;if(url){const cover=document.createElement('img');cover.className='tiny-cover';cover.alt='';cover.loading='lazy';cover.src=url;cover.onerror=()=>{cover.remove();const fallback=document.createElement('div');fallback.className='tiny-cover tiny-fallback';fallback.textContent='📖';row.prepend(fallback)};row.append(cover)}else{const fallback=document.createElement('div');fallback.className='tiny-cover tiny-fallback';fallback.textContent='📖';row.append(fallback)}}
+ const badge=document.createElement('span');badge.className='reading-badge '+(isWish?'badge-wanted':b.read===true?'badge-read':'badge-unread');badge.textContent=isWish?'Da comprare':b.read===true?'Letto':'Non letto';row.append(badge);
  const side=document.createElement('div');side.className='bookinfo';const selector=document.createElement('button');selector.type='button';selector.className='book-select';selector.setAttribute('aria-expanded','false');selector.setAttribute('aria-label','Apri dettagli di '+b.title);const h=document.createElement('strong');h.textContent=b.title;selector.append(h);const summary=document.createElement('div');summary.className='muted';summary.textContent=b.author||'Autore non indicato';selector.append(summary);const hint=document.createElement('div');hint.className='book-hint';hint.textContent='Tocca per vedere dettagli e azioni';selector.append(hint);side.append(selector);
  const details=document.createElement('div');details.className='book-details';details.hidden=true;
  const layout=document.createElement('div');layout.className='detail-layout';
@@ -282,13 +341,13 @@ function renderList(container,arr,isWish){const root=$(container);root.replaceCh
   check.onchange=async()=>{
     const previousRead=b.read===true,previousRating=Number(b.rating)||0;
     b.read=!check.checked;if(check.checked)b.rating=0;
-    state.textContent=check.checked?'Non letto':'✓ Letto';refreshRating();check.disabled=true;
+    state.textContent=check.checked?'Non letto':'✓ Letto';badge.textContent=check.checked?'Non letto':'Letto';badge.className='reading-badge '+(check.checked?'badge-unread':'badge-read');refreshRating();check.disabled=true;
     try{await put({...b,read:!check.checked,rating:Number(b.rating)||0});
       const owned=books.filter(x=>x.status!=='wanted');
       $('statRead').textContent=owned.filter(x=>x.read===true).length;
       $('statUnread').textContent=owned.filter(x=>x.read!==true).length;
       if(activeTab==='read'||activeTab==='unread'||['unread','rating'].includes($('sort').value))render();
-    }catch(e){b.read=previousRead;b.rating=previousRating;check.checked=!previousRead;state.textContent=previousRead?'✓ Letto':'Non letto';refreshRating();alert('Impossibile salvare lo stato: '+e.message)}
+    }catch(e){b.read=previousRead;b.rating=previousRating;check.checked=!previousRead;state.textContent=previousRead?'✓ Letto':'Non letto';badge.textContent=previousRead?'Letto':'Non letto';badge.className='reading-badge '+(previousRead?'badge-read':'badge-unread');refreshRating();alert('Impossibile salvare lo stato: '+e.message)}
     finally{check.disabled=false}
   };
   refreshRating();
