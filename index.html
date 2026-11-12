@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#163d33"><meta name="description" content="Catalogo personale di libri, con foto delle copertine e backup"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><title>La mia Biblioteca</title>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080a0c"><meta name="description" content="Catalogo personale di libri, con foto delle copertine e backup"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><title>La mia Biblioteca</title>
 <style>
 :root{font-family:system-ui,-apple-system,Arial,sans-serif;color:#24372e;background:#f3f5ef}*{box-sizing:border-box}body{margin:0}header{background:#163d33;color:#fff;padding:20px 18px}h1{font-size:1.6rem;margin:0}header p{color:#d4e6dd;margin:5px 0 0;font-size:.9rem}header .app-version{font-size:.76rem;opacity:.86;margin-top:8px}main{max-width:850px;margin:auto;padding:15px 14px 75px}.panel{background:#fff;border:1px solid #dbe4db;border-radius:16px;padding:17px;margin-bottom:15px}h2{font-size:1.13rem;margin:0 0 12px}p{line-height:1.5}.muted{font-size:.86rem;color:#607268}button{font:inherit;font-weight:650;border:0;border-radius:11px;padding:12px 15px;background:#217055;color:white;cursor:pointer}button.secondary{background:#e8efea;color:#214b3a}button.danger{background:#fae9e8;color:#95382c}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.actions>*{flex:1;min-width:110px}input,textarea,select{width:100%;border:1px solid #bacdc1;border-radius:10px;padding:12px;font:inherit;background:white;color:#24372e}label{font-size:.9rem;font-weight:650;display:block;margin:14px 0 5px}textarea{min-height:76px}#books{display:grid;gap:10px;margin-top:12px}.book{border:1px solid #dce5dd;border-radius:13px;padding:12px;display:flex;gap:13px}.thumb{width:75px;height:112px;flex:none;object-fit:cover;border-radius:7px;background:#e4eee7}.placeholder{display:grid;place-items:center;font-size:2rem}.bookinfo{min-width:0;flex:1;overflow-wrap:anywhere}.bookinfo strong{font-size:1.05rem}.bookinfo .muted{margin-top:5px}.book .actions{margin-bottom:0}.book .actions[hidden]{display:none}.book-select{width:100%;border:0;background:transparent;color:inherit;padding:0;text-align:left;font:inherit;cursor:pointer}.book-select:focus-visible{outline:3px solid #217055;outline-offset:3px;border-radius:7px}.book-details{border-top:1px solid #e0e8e1;padding-top:9px;margin-top:10px}.book-details[hidden]{display:none}.book-hint{font-size:.8rem;color:#607268;margin-top:7px}.book.selected{border-color:#217055;background:#f7fbf7}.book button{padding:8px 10px;font-size:.84rem}dialog{border:0;border-radius:17px;width:min(96vw,570px);max-height:94dvh;overflow:auto;padding:19px;box-shadow:0 8px 50px #0005}dialog::backdrop{background:#0009}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.top h2{margin:0}.top button{flex:0}.camera{margin-top:10px;border:2px dashed #b3cabc;padding:13px;border-radius:13px;text-align:center}.camera img{width:110px;height:155px;object-fit:cover;border-radius:8px;display:block;margin:8px auto}details{margin-top:14px;border-top:1px solid #e1e9e2;padding-top:10px}summary{font-weight:650;cursor:pointer}.status{color:#ac372d;font-size:.86rem;white-space:pre-line}.saving{opacity:.55;pointer-events:none}#count{white-space:nowrap}.notice{background:#f1f5ed;border-radius:9px;padding:10px;font-size:.86rem}a{color:#176448}.wanted{border-left:4px solid #b07b31}.want-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.want-head h2{margin:0}#wishbooks{display:grid;gap:10px;margin-top:12px}
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{background:#f5f8f5;border:1px solid #dce7dd;border-radius:12px;padding:13px}.stat strong{display:block;font-size:1.7rem;font-variant-numeric:tabular-nums;color:#194d39}.stat span{display:block;font-size:.85rem;color:#52695d;margin-top:3px}@media(min-width:620px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}.detail-cover{display:block;width:min(180px,65%);height:auto;max-height:280px;object-fit:contain;border-radius:9px;margin:10px 0 14px}.read-toggle{display:flex;align-items:center;gap:10px;margin:12px 0;padding:10px;border-radius:9px;background:#eaf2ed;font-weight:650;cursor:pointer}.read-toggle input{width:22px;height:22px;accent-color:#217055;flex-shrink:0}
@@ -16,20 +16,95 @@
 
 /* Controllo qualità del catalogo, solo segnalazioni */
 .audit-list{display:grid;gap:8px;margin-top:10px}.audit-item{border:1px solid #dce5dd;border-radius:10px;padding:10px;background:#fcfdfa}.audit-item strong{display:block}.audit-item p{font-size:.85rem;margin:4px 0 8px;color:#53685a}.audit-item button{padding:8px 11px;font-size:.85rem}.audit-meta{font-size:.87rem;color:#46604f}.audit-hint{font-size:.8rem;color:#68796f}
+
+/* Tema nero: proposta 1, palette turchese / blu / ambra / arancio. */
+:root{color-scheme:dark;color:#f2f5f6;background:#080a0c;font-family:system-ui,-apple-system,Arial,sans-serif}
+body{background:#080a0c;color:#f2f5f6}
+header{background:#080a0c;border-bottom:1px solid #27313a;padding:21px 18px 17px}
+header h1{color:#f7f9fb;font-size:1.63rem;letter-spacing:-.025em}
+header p{color:#b1bac4}header .app-version{color:#90b9b8}
+main{max-width:850px;padding:16px 13px 64px}
+.panel{background:#13171b;border:1px solid #303943;border-radius:16px;padding:16px;margin-bottom:15px}
+.panel h2{color:#f2f5f6;font-size:1.1rem}
+.muted,.list-meta,.audit-meta,.audit-hint,.origin-caption,.rating-info,.book-hint{color:#a9b3bc}
+p{color:#d3d9de}
+button{background:#008e89;color:white;border:1px solid #129e98;border-radius:11px}
+button.secondary{background:#26323d;color:#ecf3f7;border-color:#42515e}
+button.danger{background:#572b2a;color:#ffe0da;border-color:#78433a}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #64c5c1;outline-offset:2px}
+input,textarea,select{background:#22282f;color:#f5f6f7;border:1px solid #4b5865}
+input::placeholder{color:#a2acb7}
+label,.mini-setting{color:#dce3e8}
+a{color:#65ccc4}
+.tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:12px 0}
+.tab{padding:10px 3px;font-size:clamp(.71rem,2.45vw,.91rem);min-width:0;white-space:nowrap;border-radius:10px;background:#242e37;color:#ecf1f5;border:1px solid #3c4855}
+.tab[aria-selected="true"]{background:#008e89;border-color:#08ada5;color:#fff}
+.tab[data-tab="read"]{border-bottom:2px solid #396684}
+.tab[data-tab="unread"]{border-bottom:2px solid #af7b19}
+.tab[data-tab="wanted"]{border-bottom:2px solid #b75c25}
+.tab[aria-selected="true"][data-tab="read"]{background:#2d5573;border-color:#40779d}
+.tab[aria-selected="true"][data-tab="unread"]{background:#92600f;border-color:#b18232}
+.tab[aria-selected="true"][data-tab="wanted"]{background:#a74c20;border-color:#d06b35}
+#search{background:#242930;border-color:#535e6b;border-radius:12px;font-size:1rem}
+.add-home{display:block;width:100%;margin:10px 0 16px;padding:13px 15px;background:#008e89;border-color:#1ab6ae;font-size:1rem;font-weight:750}
+.book{background:#161b20;border:1px solid #303b45;border-radius:12px;padding:9px 10px;transition:border-color .15s}
+.book.selected{background:#192b2d;border-color:#188f88}
+#books{gap:7px}
+.bookinfo strong,.book-select strong{color:#f5f7f8}
+.bookinfo .muted{color:#aab6c1}
+.book-select::after{color:#b6c7cf}
+.book-details{border-top-color:#394751}
+.tiny-cover{background:#273440;width:38px;height:54px}
+.tiny-fallback{color:#aabcc2;background:#25333d}
+.book-details .actions button{background:#008e89}
+.book-details .actions button.secondary{background:#26323d}
+.book-details .actions button.danger{background:#572b2a}
+.pagination button{background:#25333b;color:#e8f1f4;border-color:#44535d}
+.read-toggle{background:#1b3630;color:#e5f9ee}
+.read-toggle input,.mini-setting input,.origin-choice input{accent-color:#008e89}
+.origin-choice,.origin-details,.rating-panel,.audit-item{background:#1d2529;border-color:#3a4b52;color:#ecf1ef}
+.origin-status,.rating-title,.audit-item strong{color:#eff5f4}
+.audit-item p{color:#adbdc0}
+.rating-star:not(.active){color:#87949a!important}
+.rating-star.active{color:#dba13b!important}
+.rating-clear{background:#273540!important;color:#f5f6f7!important}
+.notice{background:#223035;color:#e2eff1}
+details{border-color:#3a444d}
+#storagePanel{background:#11171b}
+.storage-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.storage-grid>div{border:1px solid #35464e;background:#1a262b;border-radius:10px;padding:12px}
+.storage-grid span{display:block;color:#b2c0c7;font-size:.82rem}
+.storage-grid strong{display:block;color:#e8faf8;font-size:1rem;margin-top:5px;overflow-wrap:anywhere}
+.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.stat{background:#086b67;border:1px solid #1a9993;border-radius:14px;padding:15px 11px;min-height:109px;display:flex;flex-direction:column;justify-content:space-between}
+.stat:nth-child(2){background:#2c526f;border-color:#427395}
+.stat:nth-child(3){background:#8d610e;border-color:#b58224}
+.stat:nth-child(4){background:#9a461d;border-color:#c46328}
+.stat strong{color:white;font-size:1.95rem;line-height:1.15;order:2}
+.stat span{color:#f1f6f7;font-size:.85rem;font-weight:650;order:1;margin:0}
+@media(min-width:620px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+dialog{background:#171d22;color:#f2f6f8;border:1px solid #40505b}
+dialog::backdrop{background:#000b}
+.camera{border-color:#47626a;background:#1e292d}
+.camera label[for="photo"]{background:#284943!important;color:#edfffb!important}
+#editor label{color:#dce8eb}
+#err,.status{color:#ffa09a}
+@media(max-width:380px){.tab{font-size:.7rem;padding:10px 2px}.panel{padding:12px}.stats{gap:7px}.stat{padding:12px 9px}}
 </style></head><body>
-<header><h1>📚 La mia Biblioteca</h1><p>Catalogo personale · Inserimento manuale con foto</p><p class="app-version">Versione 2026.11.11.1 · Copertine ottimizzate</p></header>
+<header><h1>📚 La mia Biblioteca</h1><p>Catalogo personale · Inserimento manuale con foto</p><p class="app-version">Versione 2026.11.12.1 · Tema nero</p></header>
 <main>
-<section class="panel" id="auditPanel"><div class="top"><h2>🔎 Controllo catalogo</h2><span class="muted" id="auditCount">Da verificare</span></div><p class="muted">Segnala possibili incongruenze senza correggere o cancellare nulla. I campi facoltativi possono restare vuoti.</p><button type="button" id="auditToggle" class="secondary" aria-expanded="false" aria-controls="auditBody">Mostra segnalazioni</button><div id="auditBody" hidden><p id="auditMeta" class="audit-meta"></p><div id="auditList" class="audit-list"></div><p class="audit-hint">Gli avvisi sono suggerimenti, non errori certi. Puoi ignorarli.</p></div></section>
-<section class="panel"><h2>Inserisci un libro</h2><p class="muted">Titolo, autore e foto della copertina. Gli altri dati sono facoltativi.</p><button id="add" style="width:100%">＋ Aggiungi un libro</button></section>
 <section class="panel"><div class="top"><h2>La tua collezione</h2><span class="muted" id="count">0 libri</span></div>
 <div class="tabs" role="tablist" aria-label="Sezioni biblioteca"><button type="button" class="tab" data-tab="all" aria-selected="true">Tutti</button><button type="button" class="tab" data-tab="read" aria-selected="false">Letti</button><button type="button" class="tab" data-tab="unread" aria-selected="false">Non letti</button><button type="button" class="tab" data-tab="wanted" aria-selected="false">Da comprare</button></div>
 <input id="search" type="search" placeholder="Cerca titolo, autore o ISBN" aria-label="Cerca libri nella sezione selezionata">
+<button id="add" type="button" class="add-home">＋ Aggiungi libro</button>
 <label for="sort">Ordina</label><select id="sort"><option value="title">Titolo A–Z</option><option value="recent">Ultimi inseriti</option><option value="author">Autore A–Z</option><option value="shelf">Scaffale A–Z</option><option value="unread">Non letti prima</option><option value="rating">Voto più alto</option></select>
 <div class="list-controls"><span class="muted">10 libri per pagina</span><label class="mini-setting"><input id="showMinis" type="checkbox" checked>Mini copertine</label></div>
 <p id="listMeta" class="list-meta" aria-live="polite"></p><div id="books"></div><div id="paging" class="pagination"><button id="prevPage" type="button" class="secondary">‹ Indietro</button><span id="pageLabel" class="muted"></span><button id="nextPage" type="button" class="secondary">Avanti ›</button></div>
 <div id="wishExtra" hidden><button id="addWish" type="button" class="secondary" style="width:100%;margin-top:14px">＋ Aggiungi alla lista acquisti</button></div>
 </section>
+<section class="panel" id="auditPanel"><div class="top"><h2>🔎 Controllo catalogo</h2><span class="muted" id="auditCount">Da verificare</span></div><p class="muted">Segnala possibili incongruenze senza correggere o cancellare nulla. I campi facoltativi possono restare vuoti.</p><button type="button" id="auditToggle" class="secondary" aria-expanded="false" aria-controls="auditBody">Mostra segnalazioni</button><div id="auditBody" hidden><p id="auditMeta" class="audit-meta"></p><div id="auditList" class="audit-list"></div><p class="audit-hint">Gli avvisi sono suggerimenti, non errori certi. Puoi ignorarli.</p></div></section>
 <section class="panel"><h2>Backup del catalogo e della lista acquisti</h2><p class="muted">La biblioteca resta salvata in questo browser, non su GitHub. Anche i libri da comprare e le foto sono inclusi nel backup JSON. Esportalo regolarmente, soprattutto prima di cambiare telefono.</p><div class="actions"><button id="export">Esporta backup JSON</button><button id="csv" class="secondary">Esporta elenco CSV</button></div><details id="photoOptimization"><summary>Ottimizzazione delle copertine già archiviate</summary><p class="muted">Le nuove foto vengono compresse automaticamente. Per ridurre anche quelle già salvate, esporta prima un backup JSON e verifica che il file sia stato scaricato correttamente. L’operazione non elimina libri né altera titoli, autori o voti. Le foto più piccole non vengono sostituite.</p><label class="mini-setting" style="margin:12px 0"><input id="backupConfirmed" type="checkbox"> Ho esportato e conservato un backup JSON</label><button id="optimizePhotos" type="button" class="secondary" disabled>Ottimizza le copertine esistenti</button><p id="optimizeResult" class="muted" aria-live="polite"></p></details><label for="import">Ripristina backup JSON</label><input id="import" type="file" accept=".json,application/json"><p class="muted">Il ripristino aggiunge i libri che non sono già presenti.</p></section>
+<section class="panel" id="storagePanel"><div class="top"><h2>Memoria del browser</h2><button type="button" class="secondary" id="storageRefresh">Aggiorna</button></div><p class="muted">Stima dello spazio usato dal sito e della quota disponibile. Non misura soltanto i libri e non è spazio riservato.</p><div class="storage-grid"><div><span>Spazio utilizzato</span><strong id="storageUsed">Da misurare</strong></div><div><span>Quota stimata</span><strong id="storageQuota">Da misurare</strong></div></div><p class="muted" id="storageNote" aria-live="polite"></p></section>
 <section class="panel"><h2>La biblioteca in numeri</h2><div class="stats" aria-live="polite"><div class="stat"><strong id="statOwned">0</strong><span>Libri posseduti</span></div><div class="stat"><strong id="statRead">0</strong><span>Libri letti</span></div><div class="stat"><strong id="statUnread">0</strong><span>Non letti</span></div><div class="stat"><strong id="statWanted">0</strong><span>Da comprare</span></div></div></section>
 </main>
 <dialog id="editor"><div class="top"><h2 id="dialogTitle">Nuovo libro</h2><button id="close" type="button" class="secondary" aria-label="Chiudi">✕</button></div>
@@ -241,4 +316,20 @@ $('prevPage').onclick=()=>{if(currentPage>1){currentPage--;render()}};
 $('nextPage').onclick=()=>{currentPage++;render()};
 $('showMinis').onchange=e=>{showMinis=e.target.checked;render()};
 (async()=>{try{db=await initDB();await reload()}catch(e){alert('Errore archivio locale: '+e.message)}})();
+
+/* Lettura della quota sito, solo informativa: nessuna scrittura nei dati. */
+async function refreshStorageEstimate(){
+ const used=$('storageUsed'), quota=$('storageQuota'), note=$('storageNote');
+ if(!navigator.storage || typeof navigator.storage.estimate!=='function'){
+  used.textContent='Non disponibile';quota.textContent='Non disponibile';note.textContent='Il browser non espone la stima.';return;
+ }
+ try{
+  const e=await navigator.storage.estimate();
+  const fmt=n=>typeof n==='number'&&Number.isFinite(n)?(n/1048576).toLocaleString('it-IT',{maximumFractionDigits:1})+' MB':'Non disponibile';
+  used.textContent=fmt(e.usage);quota.textContent=fmt(e.quota);
+  note.textContent='Valori stimati per questo sito, non solo per il catalogo.';
+ }catch(err){used.textContent='Non disponibile';quota.textContent='Non disponibile';note.textContent='Non è stato possibile leggere i dati del browser.'}
+}
+$('storageRefresh').onclick=refreshStorageEstimate;
+refreshStorageEstimate();
 </script></body></html>
