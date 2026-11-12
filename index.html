@@ -90,22 +90,75 @@ dialog::backdrop{background:#000b}
 #editor label{color:#dce8eb}
 #err,.status{color:#ffa09a}
 @media(max-width:380px){.tab{font-size:.7rem;padding:10px 2px}.panel{padding:12px}.stats{gap:7px}.stat{padding:12px 9px}}
+
+ /* Schermata scelta: replica fedele della proposta 1, senza cambiare la logica dell'app */
+ body{background:#050607;color:#f6f7f9}
+ header{display:flex;justify-content:space-between;align-items:center;max-width:850px;margin:auto;padding:18px 18px 14px;background:#050607;border-bottom:0}
+ .brand{display:flex;align-items:center;gap:13px}.brand-icon{display:flex;align-items:center;justify-content:center}
+ header h1{font-size:clamp(1.35rem,4.8vw,1.75rem);font-weight:780;white-space:nowrap}
+ header .app-version{font-size:.75rem;color:#a8b0bc;margin-top:5px}
+ .settings-toggle{font-size:1.6rem;line-height:1;background:transparent!important;border:0!important;color:#fff;padding:7px;flex:none}
+ main{padding-top:8px}
+ .collection-panel{padding:10px 0 0;background:transparent;border:0}
+ .collection-top{min-height:0;justify-content:flex-end;padding:0 4px}
+ .collection-top #count{font-size:.78rem}
+ .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:12px 0 12px;gap:7px}
+ .tab{padding:10px 2px;border-radius:13px;background:#222c37;font-size:clamp(.65rem,2.45vw,.88rem)}
+ .tab[aria-selected=true]{background:linear-gradient(160deg,#008c87,#00746e)}
+ .tab[data-tab=unread]{background:#624309;border-color:#8c6615}
+ .tab[data-tab=wanted]{background:#7c3415;border-color:#a64c24}
+ .tab[data-tab=read]{background:#25374a;border-color:#395068}
+ #search{background:#21252c;min-height:47px;border:1px solid #424b56;border-radius:12px}
+ .add-home{margin:10px 0 11px;border-radius:11px;background:#008c87;border:1px solid #159d98;color:#fff;font-size:.98rem;padding:12px}
+ .collection-panel>label[for=sort]{font-size:.76rem;margin:10px 0 5px;display:inline-block;color:#a5b0b9}
+ #sort{font-size:.83rem;max-width:230px;min-height:36px;padding:7px 10px;background:#181f25}
+ .list-controls{margin-top:8px}
+ .list-controls .muted{font-size:.74rem}
+ .list-meta{margin:7px 0;font-size:.76rem}
+ #books{display:grid;gap:0;background:#111315;border:1px solid #20272c;border-radius:12px;overflow:hidden}
+ .book{border:0;border-bottom:1px solid #2d3137;border-radius:0;background:#121416;padding:5px 9px;min-height:64px;gap:10px;align-items:center}
+ .book:last-child{border-bottom:0}
+ .book.selected{background:#182428}
+ .tiny-cover{width:38px;height:51px;border-radius:3px;object-fit:cover}
+ .bookinfo strong{font-size:.89rem;font-weight:720;line-height:1.1}
+ .bookinfo .muted{font-size:.78rem;line-height:1.2;margin-top:2px}
+ .bookinfo{min-width:0}
+ .book-select{line-height:1.24}
+ .book-details{width:100%;margin-top:7px;padding-top:7px}
+ .pagination{justify-content:center;gap:7px;margin-top:14px;margin-bottom:17px}
+ .pagination button{font-size:.79rem;padding:7px 10px}
+ .stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+ .stat{padding:11px 5px;border-radius:11px;min-height:104px;align-items:center;justify-content:center;gap:5px;text-align:center}
+ .stat strong{font-size:1.47rem;line-height:1.05}
+ .stat span{font-size:clamp(.58rem,2.3vw,.82rem);line-height:1.1}
+ .stat:nth-child(1){background:linear-gradient(145deg,#006e66,#06504b)}
+ .stat:nth-child(2){background:linear-gradient(145deg,#355b7b,#263e59)}
+ .stat:nth-child(3){background:linear-gradient(145deg,#bd8414,#8f5807)}
+ .stat:nth-child(4){background:linear-gradient(145deg,#d45b1b,#a74211)}
+ .panel:has(>.stats){background:transparent;border:0;padding:0;margin-top:4px}
+ .panel:has(>.stats)>h2{display:none}
+ #auditPanel{background:#191b20;border-color:#333840}
+ #auditPanel .top h2{font-size:1.05rem}
+ @media(max-width:380px){.brand{gap:8px}.brand-icon svg{width:38px}.tab{font-size:.64rem}.stat{min-height:94px}.stat strong{font-size:1.26rem}}
+
 </style></head><body>
-<header><h1>📚 La mia Biblioteca</h1><p>Catalogo personale · Inserimento manuale con foto</p><p class="app-version">Versione 2026.11.12.1 · Tema nero</p></header>
+<header><div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 52 52" width="47" height="47"><path d="M6 17 38 5l8 6-31 13z" fill="#16b8ac"/><path d="M6 17v9l9 7 31-12V11L15 24z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="M6 30v9l9 7 31-12v-9L15 38z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="m6 30 9 8 31-13" fill="none" stroke="#30d0c6" stroke-width="2"/></svg></span><div><h1>La mia Biblioteca</h1><p class="app-version">Versione 2026.11.12.2</p></div></div><button type="button" class="settings-toggle" id="settingsToggle" aria-label="Vai a backup e impostazioni" title="Backup e impostazioni">⚙</button></header>
 <main>
-<section class="panel"><div class="top"><h2>La tua collezione</h2><span class="muted" id="count">0 libri</span></div>
-<div class="tabs" role="tablist" aria-label="Sezioni biblioteca"><button type="button" class="tab" data-tab="all" aria-selected="true">Tutti</button><button type="button" class="tab" data-tab="read" aria-selected="false">Letti</button><button type="button" class="tab" data-tab="unread" aria-selected="false">Non letti</button><button type="button" class="tab" data-tab="wanted" aria-selected="false">Da comprare</button></div>
-<input id="search" type="search" placeholder="Cerca titolo, autore o ISBN" aria-label="Cerca libri nella sezione selezionata">
+<section class="panel collection-panel"><div class="top collection-top"><span class="muted" id="count">0 libri</span></div>
+
+<input id="search" type="search" placeholder="Cerca titolo o autore" aria-label="Cerca libri nella sezione selezionata">
 <button id="add" type="button" class="add-home">＋ Aggiungi libro</button>
+<div class="tabs" role="tablist" aria-label="Sezioni biblioteca"><button type="button" class="tab" data-tab="all" aria-selected="true">Tutti</button><button type="button" class="tab" data-tab="read" aria-selected="false">Letti</button><button type="button" class="tab" data-tab="unread" aria-selected="false">Non letti</button><button type="button" class="tab" data-tab="wanted" aria-selected="false">Da comprare</button></div>
 <label for="sort">Ordina</label><select id="sort"><option value="title">Titolo A–Z</option><option value="recent">Ultimi inseriti</option><option value="author">Autore A–Z</option><option value="shelf">Scaffale A–Z</option><option value="unread">Non letti prima</option><option value="rating">Voto più alto</option></select>
 <div class="list-controls"><span class="muted">10 libri per pagina</span><label class="mini-setting"><input id="showMinis" type="checkbox" checked>Mini copertine</label></div>
 <p id="listMeta" class="list-meta" aria-live="polite"></p><div id="books"></div><div id="paging" class="pagination"><button id="prevPage" type="button" class="secondary">‹ Indietro</button><span id="pageLabel" class="muted"></span><button id="nextPage" type="button" class="secondary">Avanti ›</button></div>
 <div id="wishExtra" hidden><button id="addWish" type="button" class="secondary" style="width:100%;margin-top:14px">＋ Aggiungi alla lista acquisti</button></div>
 </section>
+<section class="panel"><h2>La biblioteca in numeri</h2><div class="stats" aria-live="polite"><div class="stat"><strong id="statOwned">0</strong><span>Libri posseduti</span></div><div class="stat"><strong id="statRead">0</strong><span>Libri letti</span></div><div class="stat"><strong id="statUnread">0</strong><span>Non letti</span></div><div class="stat"><strong id="statWanted">0</strong><span>Da comprare</span></div></div></section>
 <section class="panel" id="auditPanel"><div class="top"><h2>🔎 Controllo catalogo</h2><span class="muted" id="auditCount">Da verificare</span></div><p class="muted">Segnala possibili incongruenze senza correggere o cancellare nulla. I campi facoltativi possono restare vuoti.</p><button type="button" id="auditToggle" class="secondary" aria-expanded="false" aria-controls="auditBody">Mostra segnalazioni</button><div id="auditBody" hidden><p id="auditMeta" class="audit-meta"></p><div id="auditList" class="audit-list"></div><p class="audit-hint">Gli avvisi sono suggerimenti, non errori certi. Puoi ignorarli.</p></div></section>
 <section class="panel"><h2>Backup del catalogo e della lista acquisti</h2><p class="muted">La biblioteca resta salvata in questo browser, non su GitHub. Anche i libri da comprare e le foto sono inclusi nel backup JSON. Esportalo regolarmente, soprattutto prima di cambiare telefono.</p><div class="actions"><button id="export">Esporta backup JSON</button><button id="csv" class="secondary">Esporta elenco CSV</button></div><details id="photoOptimization"><summary>Ottimizzazione delle copertine già archiviate</summary><p class="muted">Le nuove foto vengono compresse automaticamente. Per ridurre anche quelle già salvate, esporta prima un backup JSON e verifica che il file sia stato scaricato correttamente. L’operazione non elimina libri né altera titoli, autori o voti. Le foto più piccole non vengono sostituite.</p><label class="mini-setting" style="margin:12px 0"><input id="backupConfirmed" type="checkbox"> Ho esportato e conservato un backup JSON</label><button id="optimizePhotos" type="button" class="secondary" disabled>Ottimizza le copertine esistenti</button><p id="optimizeResult" class="muted" aria-live="polite"></p></details><label for="import">Ripristina backup JSON</label><input id="import" type="file" accept=".json,application/json"><p class="muted">Il ripristino aggiunge i libri che non sono già presenti.</p></section>
 <section class="panel" id="storagePanel"><div class="top"><h2>Memoria del browser</h2><button type="button" class="secondary" id="storageRefresh">Aggiorna</button></div><p class="muted">Stima dello spazio usato dal sito e della quota disponibile. Non misura soltanto i libri e non è spazio riservato.</p><div class="storage-grid"><div><span>Spazio utilizzato</span><strong id="storageUsed">Da misurare</strong></div><div><span>Quota stimata</span><strong id="storageQuota">Da misurare</strong></div></div><p class="muted" id="storageNote" aria-live="polite"></p></section>
-<section class="panel"><h2>La biblioteca in numeri</h2><div class="stats" aria-live="polite"><div class="stat"><strong id="statOwned">0</strong><span>Libri posseduti</span></div><div class="stat"><strong id="statRead">0</strong><span>Libri letti</span></div><div class="stat"><strong id="statUnread">0</strong><span>Non letti</span></div><div class="stat"><strong id="statWanted">0</strong><span>Da comprare</span></div></div></section>
+
 </main>
 <dialog id="editor"><div class="top"><h2 id="dialogTitle">Nuovo libro</h2><button id="close" type="button" class="secondary" aria-label="Chiudi">✕</button></div>
 <form id="form"><input id="id" type="hidden"><div id="categoryField" hidden><label for="bookCategory">Collocazione nel catalogo</label><select id="bookCategory"><option value="owned">📚 Posseduto</option><option value="wanted">🛒 Da comprare</option></select><p class="muted">Puoi correggere una categoria mancante o spostare il libro tra le due sezioni.</p></div><label for="title">Titolo *</label><input id="title" required maxlength="400" autocomplete="off" placeholder="Titolo del libro"><label for="author">Autore</label><input id="author" maxlength="300" placeholder="Nome e cognome">
@@ -332,4 +385,5 @@ async function refreshStorageEstimate(){
 }
 $('storageRefresh').onclick=refreshStorageEstimate;
 refreshStorageEstimate();
+document.getElementById('settingsToggle')?.addEventListener('click',()=>{document.getElementById('storagePanel')?.scrollIntoView({behavior:'smooth',block:'start'});});
 </script></body></html>
