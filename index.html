@@ -199,7 +199,7 @@ main{max-width:850px;padding:4px 14px 55px}
 @media(min-width:610px){.reading-badge{min-width:86px}.tiny-cover{width:44px!important;height:59px!important}.book{min-height:68px!important}.book-summary{min-height:59px}.stat{min-height:115px!important}.stat svg{width:29px;height:29px}}
 @media(max-width:355px){main{padding-left:9px;padding-right:9px}.tabs{gap:3px}.tab{font-size:.59rem!important}.reading-badge{min-width:59px;max-width:65px;padding:4px 2px}.book-summary{gap:5px}}
 </style></head><body>
-<header><div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 52 52" width="47" height="47"><path d="M6 17 38 5l8 6-31 13z" fill="#16b8ac"/><path d="M6 17v9l9 7 31-12V11L15 24z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="M6 30v9l9 7 31-12v-9L15 38z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="m6 30 9 8 31-13" fill="none" stroke="#30d0c6" stroke-width="2"/></svg></span><div><h1>La mia Biblioteca</h1><p class="app-version">Versione 2026.11.12.3</p></div></div><button type="button" class="settings-toggle" id="settingsToggle" aria-label="Vai a backup e impostazioni" title="Backup e impostazioni">⚙</button></header>
+<header><div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 52 52" width="47" height="47"><path d="M6 17 38 5l8 6-31 13z" fill="#16b8ac"/><path d="M6 17v9l9 7 31-12V11L15 24z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="M6 30v9l9 7 31-12v-9L15 38z" fill="#075e60" stroke="#30d0c6" stroke-width="2"/><path d="m6 30 9 8 31-13" fill="none" stroke="#30d0c6" stroke-width="2"/></svg></span><div><h1>La mia Biblioteca</h1><p class="app-version">Versione 2026.11.13.1</p></div></div><button type="button" class="settings-toggle" id="settingsToggle" aria-label="Vai a backup e impostazioni" title="Backup e impostazioni">⚙</button></header>
 <main>
 <section class="panel collection-panel">
 
@@ -214,7 +214,7 @@ main{max-width:850px;padding:4px 14px 55px}
 <section class="panel"><h2>La biblioteca in numeri</h2><div class="stats" aria-live="polite"><div class="stat"><strong id="statOwned">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v17H3zm9 3h5v14h-5zm6-4 4 2v16l-4-2zM6 7h2m-2 9h2m9-8h-3"/></svg>Posseduti</span></div><div class="stat"><strong id="statRead">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m7 12 3.3 3.3L17 8.5"/></svg>Letti</span></div><div class="stat"><strong id="statUnread">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-3-2-6-2-10-2v15c4 0 7 0 10 2 3-2 6-2 10-2V3c-4 0-7 0-10 2zm0 0v15"/></svg>Non letti</span></div><div class="stat"><strong id="statWanted">0</strong><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h3l3 13h11l3-10H6m3 15h.1m9 0h.1"/></svg>Da comprare</span></div></div></section>
 <section class="panel" id="displayOptions"><details><summary>Ordinamento e visualizzazione</summary><label for="sort">Ordina</label><select id="sort"><option value="title">Titolo A–Z</option><option value="recent">Ultimi inseriti</option><option value="author">Autore A–Z</option><option value="shelf">Scaffale A–Z</option><option value="unread">Non letti prima</option><option value="rating">Voto più alto</option></select><div class="list-controls"><span class="muted">10 libri per pagina</span><label class="mini-setting"><input id="showMinis" type="checkbox" checked>Mini copertine</label></div></details></section>
 <section class="panel" id="auditPanel"><div class="top"><h2>🔎 Controllo catalogo</h2><span class="muted" id="auditCount">Da verificare</span></div><p class="muted">Segnala possibili incongruenze senza correggere o cancellare nulla. I campi facoltativi possono restare vuoti.</p><button type="button" id="auditToggle" class="secondary" aria-expanded="false" aria-controls="auditBody">Mostra segnalazioni</button><div id="auditBody" hidden><p id="auditMeta" class="audit-meta"></p><div id="auditList" class="audit-list"></div><p class="audit-hint">Gli avvisi sono suggerimenti, non errori certi. Puoi ignorarli.</p></div></section>
-<section class="panel"><h2>Backup del catalogo e della lista acquisti</h2><p class="muted">La biblioteca resta salvata in questo browser, non su GitHub. Anche i libri da comprare e le foto sono inclusi nel backup JSON. Esportalo regolarmente, soprattutto prima di cambiare telefono.</p><div class="actions"><button id="export">Esporta backup JSON</button><button id="csv" class="secondary">Esporta elenco CSV</button></div><details id="photoOptimization"><summary>Ottimizzazione delle copertine già archiviate</summary><p class="muted">Le nuove foto vengono compresse automaticamente. Per ridurre anche quelle già salvate, esporta prima un backup JSON e verifica che il file sia stato scaricato correttamente. L’operazione non elimina libri né altera titoli, autori o voti. Le foto più piccole non vengono sostituite.</p><label class="mini-setting" style="margin:12px 0"><input id="backupConfirmed" type="checkbox"> Ho esportato e conservato un backup JSON</label><button id="optimizePhotos" type="button" class="secondary" disabled>Ottimizza le copertine esistenti</button><p id="optimizeResult" class="muted" aria-live="polite"></p></details><label for="import">Ripristina backup JSON</label><input id="import" type="file" accept=".json,application/json"><p class="muted">Il ripristino aggiunge i libri che non sono già presenti.</p></section>
+<section class="panel"><h2>Backup del catalogo e della lista acquisti</h2><p class="muted">La biblioteca resta salvata in questo browser, non su GitHub. Anche i libri da comprare e le foto sono inclusi nel backup JSON. Esportalo regolarmente, soprattutto prima di cambiare telefono.</p><div class="actions"><button id="export">Esporta backup JSON</button><button id="csv" class="secondary">Esporta elenco CSV</button></div><details id="photoOptimization"><summary>Ottimizzazione delle copertine già archiviate</summary><p class="muted">Le nuove foto vengono compresse automaticamente. Per ridurre anche quelle già salvate, esporta prima un backup JSON e verifica che il file sia stato scaricato correttamente. L’operazione non elimina libri né altera titoli, autori o voti. Le foto più piccole non vengono sostituite.</p><label class="mini-setting" style="margin:12px 0"><input id="backupConfirmed" type="checkbox"> Ho esportato e conservato un backup JSON</label><button id="optimizePhotos" type="button" class="secondary" disabled>Ottimizza le copertine esistenti</button><p id="optimizeResult" class="muted" aria-live="polite"></p></details><label for="import">Importa o ripristina backup JSON</label><input id="import" type="file" accept=".json,application/json"><p class="muted">Scegli se aggiungere soltanto i libri mancanti oppure ripristinare integralmente il catalogo dal backup. Prima di sostituire i dati viene scaricata una copia di sicurezza e richiesta una conferma.</p><p id="backupStatus" class="muted" role="status" aria-live="polite"></p></section>
 <section class="panel" id="storagePanel"><div class="top"><h2>Memoria del browser</h2><button type="button" class="secondary" id="storageRefresh">Aggiorna</button></div><p class="muted">Stima dello spazio usato dal sito e della quota disponibile. Non misura soltanto i libri e non è spazio riservato.</p><div class="storage-grid"><div><span>Spazio utilizzato</span><strong id="storageUsed">Da misurare</strong></div><div><span>Quota stimata</span><strong id="storageQuota">Da misurare</strong></div></div><p class="muted" id="storageNote" aria-live="polite"></p></section>
 
 </main>
@@ -389,7 +389,26 @@ $('removePhoto').onclick=()=>{photoData='';$('photo').value='';setPreview()};$('
 $('form').onsubmit=async e=>{e.preventDefault();const title=$('title').value.trim();if(!title)return;const id=$('id').value,old=id?books.find(b=>b.id===id):null;const isbn=normISBN($('bookIsbn').value);if(isbn&&books.some(b=>b.isbn===isbn&&b.id!==id)){$('err').textContent='Questo ISBN è già nel catalogo.';return}const b={id:id||(crypto.randomUUID?.()||String(Date.now())+Math.random()),created:old?.created||Date.now(),title,author:$('author').value.trim(),publisher:$('publisher').value.trim(),year:$('year').value.trim(),isbn,notes:$('notes').value.trim(),shelf:$('shelf').value.trim(),cover:$('cover').value.trim(),photo:photoData,status:editorStatus,origin:editorStatus==='wanted'?'':(old?.status==='wanted'?'purchased':(document.querySelector('input[name="origin"]:checked')?.value||'')),read:editorStatus==='wanted'?false:(old?.status==='wanted'?true:old?old.read===true:true),rating:editorStatus==='wanted'?0:(old?.read===true?(Number(old?.rating)||0):0),price:$('price').value.trim(),shop:$('shop').value.trim()};$('save').disabled=true;try{await put(b);await reload();closeEditor()}catch(e){$('err').textContent='Salvataggio non riuscito: '+e.message+'; prova con una foto più piccola o esporta un backup.'}finally{$('save').disabled=false}};
 function download(s,name,type){const u=URL.createObjectURL(new Blob([s],{type})),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)}
 function cell(x){return '"'+String(x??'').replace(/"/g,'""')+'"'}
-$('export').onclick=()=>download(JSON.stringify({app:'La mia Biblioteca',version:3,exportedAt:new Date().toISOString(),books},null,2),'biblioteca-backup-'+new Date().toISOString().slice(0,10)+'.json','application/json');
+// Esporta sempre una lettura aggiornata dell'intero IndexedDB, mai solo la pagina visibile.
+function makeBackup(items){return {app:'La mia Biblioteca',version:3,exportedAt:new Date().toISOString(),books:items}}
+function backupName(prefix='biblioteca-backup'){
+ const stamp=new Date().toISOString().replace(/[:.]/g,'-');
+ return prefix+'-'+stamp+'.json';
+}
+async function exportCompleteBackup(){
+ const button=$('export'),label=button.textContent;
+ button.disabled=true;
+ try{
+  if(!db)throw Error('Archivio del browser non pronto.');
+  const items=await all();
+  if(items.length!==new Set(items.map(x=>x.id)).size)throw Error('Identificativi duplicati nell’archivio.');
+  const data=makeBackup(items);
+  download(JSON.stringify(data,null,2),backupName(),'application/json');
+  $('backupStatus').textContent='Esportazione avviata: '+items.length+' libri, '+items.filter(x=>Boolean(x.photo)).length+' fotografie. Controlla che il download sia stato salvato.';
+ }catch(e){alert('Backup non riuscito: '+e.message)}
+ finally{button.disabled=false;button.textContent=label}
+}
+$('export').onclick=exportCompleteBackup;
 $('csv').onclick=()=>{const keys=['status','title','author','publisher','year','isbn','shelf','notes','price','shop','read','rating','origin'];download('\ufeff'+[keys.join(';'),...books.map(b=>keys.map(k=>cell(b[k])).join(';'))].join('\r\n'),'biblioteca-'+new Date().toISOString().slice(0,10)+'.csv','text/csv;charset=utf-8')};
 $('backupConfirmed').onchange=e=>{$('optimizePhotos').disabled=!e.target.checked};
 $('optimizePhotos').onclick=async()=>{
@@ -420,7 +439,92 @@ $('optimizePhotos').onclick=async()=>{
   $('optimizeResult').textContent='Completato: '+changed+' foto ridotte, '+skipped+' già adeguate, '+failed+' non elaborate. Spazio risparmiato nelle immagini: circa '+Math.max(0,Math.round(saved))+' KB. Esporta un nuovo backup JSON.';
  }finally{btn.disabled=!$('backupConfirmed').checked}
 };
-$('import').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const j=JSON.parse(await file.text());if(j.app!=='La mia Biblioteca'||!Array.isArray(j.books))throw Error('Backup non valido');let n=0;for(const b of j.books){if(!b||typeof b.id!=='string'||typeof b.title!=='string')continue;if(books.some(x=>x.id===b.id||(b.isbn&&x.isbn===b.isbn)))continue;await put({...b,photo:typeof b.photo==='string'?b.photo:''});books.push(b);n++}await reload();alert('Importati '+n+' libri.')}catch(e){alert('Ripristino non riuscito: '+e.message)}finally{e.target.value=''}};
+// Valida il file PRIMA di qualsiasi scrittura: niente ripristini parziali o schede perse.
+function validateBackup(data){
+ if(!data||data.app!=='La mia Biblioteca'||!Array.isArray(data.books))throw Error('File non riconosciuto come backup della biblioteca.');
+ if(!data.books.length)throw Error('Il backup non contiene libri: ripristino bloccato per sicurezza.');
+ const ids=new Set(),valid=[];
+ for(let i=0;i<data.books.length;i++){
+  const b=data.books[i];
+  if(!b||typeof b!=='object'||Array.isArray(b)||typeof b.id!=='string'||!b.id.trim()||typeof b.title!=='string'||!b.title.trim())
+   throw Error('Scheda '+(i+1)+' incompleta: il file non sarà importato.');
+  if(ids.has(b.id))throw Error('Identificativo duplicato nel backup: '+b.id);
+  if(b.photo!==undefined&&typeof b.photo!=='string')throw Error('Foto non valida nella scheda '+(i+1));
+  if(b.status!==undefined&&!['owned','wanted',''].includes(b.status))throw Error('Categoria non valida nella scheda '+(i+1));
+  ids.add(b.id);
+  valid.push({...b}); // Conserva tutti i campi, inclusi eventuali campi aggiuntivi.
+ }
+ return valid;
+}
+function backupPhotoCount(items){return items.filter(b=>typeof b.photo==='string'&&b.photo.length>0).length}
+function transactionWrite(items,replace){
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction(STORE,'readwrite');let error=null;
+  tx.oncomplete=()=>resolve();
+  tx.onabort=()=>reject(error||tx.error||Error('Operazione annullata dal browser.'));
+  tx.onerror=()=>{error=tx.error||Error('Errore di scrittura.');};
+  try{
+   const store=tx.objectStore(STORE);
+   if(replace)store.clear();
+   for(const b of items)store.put(b);
+  }catch(e){error=e;try{tx.abort()}catch(_){} }
+ });
+}
+let importingBackup=false;
+$('import').onchange=async e=>{
+ const input=e.target,file=input.files?.[0];if(!file||importingBackup)return;
+ importingBackup=true;input.disabled=true;
+ const status=$('backupStatus');
+ try{
+  if(!db)throw Error('Archivio locale non pronto.');
+  status.textContent='Controllo del file in corso…';
+  const incoming=validateBackup(JSON.parse(await file.text()));
+  const current=await all();
+  const currentIds=new Set(current.map(b=>b.id));
+  const currentISBN=new Set(current.map(b=>normISBN(b.isbn)).filter(Boolean));
+  const seenISBN=new Set(currentISBN);
+  const missing=incoming.filter(b=>{
+   const isbn=normISBN(b.isbn);
+   if(currentIds.has(b.id)||(isbn&&seenISBN.has(isbn)))return false;
+   if(isbn)seenISBN.add(isbn);
+   return true;
+  });
+  const overlapping=incoming.length-missing.length;
+  const summary='Backup selezionato: '+incoming.length+' libri ('+backupPhotoCount(incoming)+' foto).\n'+
+   'Archivio attuale: '+current.length+' libri ('+backupPhotoCount(current)+' foto).\n'+
+   'Libri nuovi da aggiungere: '+missing.length+'. Già riconosciuti: '+overlapping+'.';
+  if(!confirm(summary+'\n\nOK = scegli il tipo di importazione. ANNULLA = non modificare nulla.')){
+   status.textContent='Importazione annullata. Nessun dato modificato.';return;
+  }
+  // La scelta evita nuove schermate e non modifica il layout approvato.
+  const full=confirm('COME VUOI IMPORTARE?\n\nOK = RIPRISTINO COMPLETO: il catalogo diventa ESATTAMENTE quello del file ('+incoming.length+' libri). I libri assenti dal file saranno eliminati dal browser.\n\nANNULLA = AGGIUNGI SOLTANTO I LIBRI MANCANTI ('+missing.length+').');
+  if(!full&&!missing.length){status.textContent='Nessun libro nuovo da aggiungere. Nessuna modifica.';return;}
+  if(full){
+   const finalWarning='ATTENZIONE: RIPRISTINO COMPLETO.\n\n'+summary+'\n\n'+
+    'Il catalogo attuale verrà sostituito integralmente. PRIMA scaricheremo automaticamente una copia di sicurezza dell’archivio attuale.\n\nConfermi di voler procedere?';
+   if(!confirm(finalWarning)){status.textContent='Ripristino annullato. Nessun dato modificato.';return;}
+  }
+  // Copia di protezione prima di ogni modifica, inclusa l'importazione aggiuntiva.
+  // Nessuna scrittura prima che l'utente confermi di aver salvato il download.
+  const safetyName=backupName('biblioteca-sicurezza-prima-importazione');
+  download(JSON.stringify(makeBackup(current),null,2),safetyName,'application/json');
+  status.textContent='Scaricata copia di sicurezza: '+safetyName+'. Verifica il download prima di procedere.';
+  if(!confirm('Controlla nei Download che il file «'+safetyName+'» sia presente e conservato.\n\nPremi OK SOLO DOPO averne verificato il salvataggio. ANNULLA lascia il catalogo invariato.')){
+   status.textContent='Importazione annullata: nessun dato modificato. Conserva la copia di sicurezza.';return;
+  }
+  status.textContent='Salvataggio in corso. Non chiudere la pagina…';
+  await transactionWrite(full?incoming:missing,full);
+  await reload();
+  const after=await all();
+  const expected=full?incoming.length:current.length+missing.length;
+  if(after.length!==expected)throw Error('Controllo finale: trovati '+after.length+' libri anziché '+expected+'. Conserva la copia di sicurezza.');
+  status.textContent=full?'Ripristino completato: '+after.length+' libri e '+backupPhotoCount(after)+' foto.':'Importazione completata: '+missing.length+' libri aggiunti. Totale '+after.length+'.';
+  alert(status.textContent);
+ }catch(err){
+  status.textContent='Importazione non completata: '+err.message;
+  alert('Importazione non riuscita: '+err.message+'\nI dati non sono stati cancellati intenzionalmente. Se necessario, usa la copia di sicurezza.');
+ }finally{input.value='';input.disabled=false;importingBackup=false;}
+};
 $('add').onclick=()=>openEditor();$('addWish').onclick=()=>openEditor({},'wanted');$('close').onclick=$('cancel').onclick=closeEditor;
 $('search').oninput=()=>{currentPage=1;render()};$('sort').onchange=()=>{currentPage=1;render()};
 document.querySelectorAll('[data-tab]').forEach(el=>el.onclick=()=>{activeTab=el.dataset.tab;currentPage=1;$('search').value='';render()});
